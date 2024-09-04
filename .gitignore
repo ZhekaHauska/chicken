@@ -1,0 +1,16 @@
+.import/*
+*.import
+*.translation
+export_presets.cfg
+builds/*
+*.blend
+*.blend1
+.idea
+.godot
+.DS_Store
+__pycache__
+*.egg-info
+*.pck
+*.x86_64
+*.app
+

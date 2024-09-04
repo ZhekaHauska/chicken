@@ -1,0 +1,15 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cukgutlsgtlxe"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cduia"]
+
+[sub_resource type="Sky" id="Sky_8knbl"]
+sky_material = SubResource("ProceduralSkyMaterial_cduia")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_8knbl")
+ambient_light_source = 3
+ambient_light_color = Color(0.631373, 0.631373, 0.631373, 1)
+glow_enabled = true
+glow_bloom = 0.15
+glow_hdr_threshold = 0.58

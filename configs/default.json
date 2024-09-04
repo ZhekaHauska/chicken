@@ -1,0 +1,23 @@
+{
+    "field_size": 10,
+    "weights": [1, 1],
+    "sets":
+        [
+            {
+                "shape": ["categorical", ["sphere"], [1]],
+                "size": ["uniform", 0.1, 0.4],
+                "rotation": ["uniform", 0, 180],
+                "color": ["categorical", [[125, 0, 125]], [1]],
+                "roughness": ["uniform", 0, 1],
+                "edible": ["categorical", [true], [1]]
+            },
+            {
+                "shape": ["categorical", ["box", "cylinder"], [1, 1]],
+                "size": ["uniform", 0.1, 0.4],
+                "rotation": ["uniform", 0, 180],
+                "color": ["categorical", [[0, 0, 255], [255, 0, 0], [0, 255, 0]], [1, 1, 1]],
+                "roughness": ["uniform", 0, 1],
+                "edible": ["categorical", [false], [1]]
+            }
+        ]
+}

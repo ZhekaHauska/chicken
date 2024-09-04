@@ -1,0 +1,18 @@
+[gd_scene format=2]
+
+[node name="RandomForces" type="Node"]
+
+[connection signal="body_entered" from="RandomForce" to="RandomForce" method="_on_ForceArea_body_entered"]
+[connection signal="body_exited" from="RandomForce" to="RandomForce" method="_on_RandomForce_body_exited"]
+[connection signal="body_entered" from="@RandomForce@96" to="@RandomForce@96" method="_on_ForceArea_body_entered"]
+[connection signal="body_exited" from="@RandomForce@96" to="@RandomForce@96" method="_on_RandomForce_body_exited"]
+[connection signal="body_entered" from="@RandomForce@97" to="@RandomForce@97" method="_on_ForceArea_body_entered"]
+[connection signal="body_exited" from="@RandomForce@97" to="@RandomForce@97" method="_on_RandomForce_body_exited"]
+[connection signal="body_entered" from="@RandomForce@98" to="@RandomForce@98" method="_on_ForceArea_body_entered"]
+[connection signal="body_exited" from="@RandomForce@98" to="@RandomForce@98" method="_on_RandomForce_body_exited"]
+[connection signal="body_entered" from="@RandomForce@99" to="@RandomForce@99" method="_on_ForceArea_body_entered"]
+[connection signal="body_exited" from="@RandomForce@99" to="@RandomForce@99" method="_on_RandomForce_body_exited"]
+[connection signal="body_entered" from="Attractor" to="Attractor" method="_on_Attractor_body_entered"]
+[connection signal="body_exited" from="Attractor" to="Attractor" method="_on_Attractor_body_exited"]
+[connection signal="body_entered" from="@Attractor@100" to="@Attractor@100" method="_on_Attractor_body_entered"]
+[connection signal="body_exited" from="@Attractor@100" to="@Attractor@100" method="_on_Attractor_body_exited"]
