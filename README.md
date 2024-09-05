@@ -1,10 +1,13 @@
 # Chicken
-A basic model of pecking task for birds. 
+A basic model of pecking task for birds written in Godot 4 with Python environment for RL algorithms use. 
 
 The agent representing a bird is able to move in 2D space and peck. Agent observes a square surface covered with objects of different shapes, sizes and colors.
 Eatable objects are destroyed when pecked. 
 
 ![example.png](assets/example.png)
+
+## Requirements
+**Godot 4** (4.2.1stable tested) and **Python 3.9+** to control the environment from code. 
 
 ## Configuration
 See `configs` folder for examples.
@@ -29,7 +32,7 @@ Running executable in standalone regime without python environment is mainly for
 - toggle first-person camera preview `F`
 
 ## Python environment
-To use the environment in Python programs:
+To use the environment in Python 3.9+ programs:
 1. install environment into your Python environment using `python_env/setup.py` and requirements from `python_env/requirements.txt`.
 2. Open the project in Godot editor and export it to executable file.
 3. Specify path to your executable file in `python_env/config.yaml` or though the `CHICKEN_EXE` variable. 
