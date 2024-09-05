@@ -24,8 +24,9 @@ See `configs` folder for examples.
   - `edible`: is interpreted as a boolean value, specifying whether the object edible or not. Edible objects give `+1` positive reward and disappear after pecked.
 
 
-## Control
+## Play
 Running executable in standalone regime without python environment is mainly for testing purposes.
+Specify configuration file using `--config=configs/default.json` flag for the executable.
 - move agent: `WASD` or arrows
 - peck: `SPACE`
 - change camera view `C`
