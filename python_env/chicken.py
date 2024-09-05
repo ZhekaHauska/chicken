@@ -76,7 +76,10 @@ class Chicken:
 
         atexit.register(self.close)
 
-    def obs(self):
+    def obs(self) -> [np.ndarray, float, bool]:
+        """
+        :return: image in RGB8 format, reward, terminal state
+        """
         message = {
             'type': 'get_obs'
         }
@@ -92,7 +95,11 @@ class Chicken:
 
         return obs, reward, is_terminal
 
-    def act(self, action):
+    def act(self, action: [float, float, bool]):
+        """
+        :param action: move x, move y, peck
+        :return:
+        """
         message = {
             'type': 'act',
             'action': action
@@ -100,6 +107,10 @@ class Chicken:
         self._send_as_json(message)
 
     def step(self):
+        """
+        Do next simulation step. Only makes sense if sync is set to True.
+        :return:
+        """
         message = {
             'type': 'step'
         }

@@ -1,6 +1,6 @@
 exe_path: '../Chicken.x86_64'
 config_path: '../configs/default.json'
-train: true  # disables render loop and runs window with minimal size
+train: false  # disables render loop and runs window with minimal size
 # framerate: 0
 # observation resolution
 size_x: 64
@@ -9,5 +9,5 @@ fov: 30  # agent's field of view
 # host: "127.0.0.1"
 # port: 5555
 # timeout: 600
-sync: true  # waits for python env messages
+sync: true  # waits for Chicken.step() call to proceed simulation
 seed: null
