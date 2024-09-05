@@ -14,6 +14,7 @@ var args = null
 var connected = false
 var wait_client = false
 var reward_decay = 0.0
+var field_scale = 35
 
 
 func _get_args():
@@ -139,7 +140,7 @@ func setup_environment(config_dict):
 	for item in $Items.get_children():
 		item.queue_free()
 		
-	var field_scale = $Floor/CollisionShape3D/CSGMesh3D.scale[0]
+	field_scale = $Floor/CollisionShape3D/CSGMesh3D.scale[0]
 	var start = - field_scale / 2 + 1.5
 	var x = start
 	var z = start

@@ -25,9 +25,12 @@ func set_pos(x, y):
 	$RGBCameraSensor3D/SubViewport/Camera3D.position = pos
 		
 func move(x, y):
+	var field_range = get_node('/root/Env').field_scale / 2
 	var shift = Vector3(x, 0, y)
-	position += shift
-	$RGBCameraSensor3D/SubViewport/Camera3D.position += shift
+	var new_position = position + shift
+	if (abs(new_position.x) < field_range) and (abs(new_position.z) < field_range): 
+		position += shift
+		$RGBCameraSensor3D/SubViewport/Camera3D.position += shift
 
 func eat():
 	if can_eat:
