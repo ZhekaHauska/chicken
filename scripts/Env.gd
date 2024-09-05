@@ -248,7 +248,6 @@ func _message_handler(message):
 		
 	if message['type'] == 'act':
 		var action = message['action']
-		print(action)
 		$Chicken.act(action[0], action[1], action[2])
 	
 	if message['type'] == 'reset':

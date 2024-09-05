@@ -1,12 +1,13 @@
 exe_path: '../Chicken.x86_64'
 config_path: '../configs/default.json'
-headless: true
+train: true  # disables render loop and runs window with minimal size
+# framerate: 0
+# observation resolution
 size_x: 64
 size_y: 64
-fov: 30
+fov: 30  # agent's field of view
 # host: "127.0.0.1"
 # port: 5555
-# framerate: 300
-sync: true
 # timeout: 600
+sync: true  # waits for python env messages
 seed: null

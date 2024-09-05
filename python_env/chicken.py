@@ -15,7 +15,7 @@ class Chicken:
             self,
             exe_path: str = None,
             config_path: str = None,
-            headless: bool = True,
+            train: bool = True,
             size_x: int = None,
             size_y: int = None,
             fov: int = None,
@@ -28,7 +28,7 @@ class Chicken:
     ):
         self.exe_path = exe_path
         self.config_path = config_path
-        self.headless = headless
+        self.train = train
         self.size_x = size_x
         self.size_y = size_y
         self.fov = fov
@@ -54,7 +54,7 @@ class Chicken:
                     config_path,
                     host,
                     self.port,
-                    headless,
+                    train,
                     size_x,
                     size_y,
                     fov,
@@ -194,7 +194,7 @@ class Chicken:
             config_path,
             host,
             port,
-            headless,
+            train,
             size_x,
             size_y,
             fov,
@@ -210,8 +210,8 @@ class Chicken:
             launch_cmd += f" --host={host}"
         if port is not None:
             launch_cmd += f" --port={port}"
-        if headless:
-            launch_cmd += " --disable-render-loop --no-window"
+        if train:
+            launch_cmd += " --disable-render-loop --resolution 1x1"
         if framerate is not None:
             launch_cmd += f" --fixed-fps {framerate}"
         if sync:
