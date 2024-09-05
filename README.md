@@ -26,7 +26,7 @@ See `configs` folder for examples.
 
 ## Play
 Running executable in standalone regime without python environment is mainly for testing purposes.
-Specify configuration file using `--config=configs/default.json` flag for the executable.
+Specify configuration file using `--config=path/to/json/config` flag for the executable.
 - move agent: `WASD` or arrows
 - peck: `SPACE`
 - change camera view `C`
