@@ -85,7 +85,7 @@ func _ready():
 	
 	print('Environment is ready for use')
 	
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("reset"):
 		reset()
 		OS.delay_msec(50)
@@ -98,7 +98,7 @@ func _input(event):
 		var view = $TestViewport
 		view.visible = not view.visible
 		
-func _process(delta):	
+func _process(_delta):	
 	if connected:
 		var message = _get_dict_json_message()
 		if wait_client:
@@ -128,7 +128,7 @@ func load_json_data(path):
 
 	var json_string = file.get_as_text()
 	var test_json_conv = JSON.new()
-	var err = test_json_conv.parse(json_string)
+	test_json_conv.parse(json_string)
 	var parse_result = test_json_conv.get_data()
 
 	file.close()
@@ -148,7 +148,6 @@ func setup_environment(config_dict):
 	var grid_size = field_scale / field_size
 	var set_weights = config_dict['weights']
 	var sets = config_dict['sets']
-	var mesh_path = "res://assets/shapes/%s.obj"
 	
 	for row in range(field_size):
 		x = start
@@ -169,7 +168,7 @@ func setup_environment(config_dict):
 func _set_sensor_size(size):
 	var v_size = Vector2i(size[0], size[1])
 	var view: SubViewport = $Chicken/RGBCameraSensor3D/SubViewport
-	view.size = size
+	view.size = v_size
 
 func _set_fov(fov):
 	var cam: Camera3D = $Chicken/FOVCamera
@@ -184,7 +183,7 @@ func connect_to_server(ip, port):
 	print("Trying to connect to server")
 	client = StreamPeerTCP.new()
 	
-	var connect = client.connect_to_host(ip, port)
+	client.connect_to_host(ip, port)
 	client.poll()
 	var status = client.get_status()
 
@@ -192,7 +191,7 @@ func connect_to_server(ip, port):
 		client.poll()
 		status = client.get_status()
 	
-	var connected = status == 2
+	connected = status == 2
 	if not connected:
 		print("Failed connecting to sever!")
 	
@@ -204,7 +203,7 @@ func quit():
 		get_tree().quit()
 
 func _send_dict_as_json_message(dict):
-	client.put_string(JSON.new().stringify(dict))
+	client.put_string(JSON.stringify(dict))
 
 func _get_dict_json_message():
 	while client.get_available_bytes() == 0:

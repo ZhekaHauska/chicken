@@ -6,7 +6,7 @@ var terminated = false
 var item = null
 signal got_reward(reward)
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_pressed('move_left'):
 		move(-0.1, 0)
 	if Input.is_action_pressed('move_right'):
@@ -39,8 +39,8 @@ func eat():
 	else:
 		reward = -1
 
-func act(x, y, eat):
+func act(x, y, peck):
 	reward = 0
 	move(x, y)
-	if eat:
+	if peck:
 		eat()

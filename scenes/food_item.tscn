@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhchdpr675msj"]
+[gd_scene load_steps=4 format=3 uid="uid://dhchdpr675msj"]
 
 [ext_resource type="Script" path="res://scripts/FoodItem.gd" id="1_m125k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6ke0m"]
+rough = true
+absorbent = true
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fw421"]
 
 [node name="FoodItem" type="RigidBody3D"]
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_6ke0m")
+continuous_cd = true
+linear_damp = 1.01
 script = ExtResource("1_m125k")
 
 [node name="Area3D" type="Area3D" parent="."]
