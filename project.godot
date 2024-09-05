@@ -23,7 +23,7 @@ window/vsync/vsync_mode=false
 
 [editor]
 
-run/main_run_args="--sync=true --config=configs/default.json"
+run/main_run_args="--sync=true --config=configs/default.json --fov=15"
 
 [gui]
 

@@ -18,6 +18,7 @@ class Chicken:
             headless: bool = True,
             size_x: int = None,
             size_y: int = None,
+            fov: int = None,
             host: str = HOST,
             port: int = PORT,
             framerate: int = None,
@@ -30,6 +31,7 @@ class Chicken:
         self.headless = headless
         self.size_x = size_x
         self.size_y = size_y
+        self.fov = fov
         self.host = host
         self.port = port
         self.timeout = timeout
@@ -55,6 +57,7 @@ class Chicken:
                     headless,
                     size_x,
                     size_y,
+                    fov,
                     framerate,
                     sync,
                     seed
@@ -124,6 +127,13 @@ class Chicken:
         }
         self._send_as_json(message)
 
+    def set_fov(self, fov):
+        message = {
+            'type': 'set_fov',
+            'fov': fov
+        }
+        self._send_as_json(message)
+
     def close(self):
         message = {
             'type': 'close'
@@ -187,6 +197,7 @@ class Chicken:
             headless,
             size_x,
             size_y,
+            fov,
             framerate,
             sync,
             seed
@@ -209,6 +220,8 @@ class Chicken:
             launch_cmd += f" --sizex={size_x}"
         if size_y:
             launch_cmd += f" --sizey={size_y}"
+        if fov:
+            launch_cmd += f" --fov={fov}"
         if seed is not None:
             launch_cmd += f" --seed={seed}"
 

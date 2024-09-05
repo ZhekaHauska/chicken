@@ -62,7 +62,9 @@ func _ready():
 		else:
 			sensor.size.x = int(round(view_size_y * vp_ratio))
 		
-		
+	var fov = int(args.get('fov', null))
+	_set_fov(fov)
+	
 	connected = connect_to_server(
 		args.get('host', DEFAULT_HOST), 
 		int(args.get('port', DEFAULT_PORT))
@@ -164,7 +166,15 @@ func setup_environment(config_dict):
 		z += grid_size
 		
 func _set_sensor_size(size):
-	$Chicken/RGBCameraSensor3D/SubViewport.size = size
+	var v_size = Vector2i(size[0], size[1])
+	var view: SubViewport = $Chicken/RGBCameraSensor3D/SubViewport
+	view.size = size
+
+func _set_fov(fov):
+	var cam: Camera3D = $Chicken/FOVCamera
+	cam.fov = fov
+	cam = $Chicken/RGBCameraSensor3D/SubViewport/Camera3D
+	cam.fov = fov
 
 # sync routines
 func connect_to_server(ip, port):
@@ -260,7 +270,10 @@ func _message_handler(message):
 		var sizey = int(message['sizey'])
 		var size = Vector2(sizex, sizey)
 		
-		_set_sensor_size(size) 
+		_set_sensor_size(size)
+	
+	if message['type'] == 'set_fov':
+		_set_fov(int(message['fov']))
 
 func sample_set_parameters(sets, set_weights):
 	var current_set = utils.sample_categorical(

@@ -1,0 +1,12 @@
+exe_path: '../Chicken.x86_64'
+config_path: '../configs/default.json'
+headless: true
+size_x: 64
+size_y: 64
+fov: 30
+# host: "127.0.0.1"
+# port: 5555
+# framerate: 300
+sync: true
+# timeout: 600
+seed: null
