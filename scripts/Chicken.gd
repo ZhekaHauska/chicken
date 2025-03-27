@@ -4,6 +4,8 @@ var can_eat = false
 var reward = 0
 var terminated = false
 var item = null
+var remove_edible = true
+
 signal got_reward(reward)
 
 func _input(_event):
@@ -35,7 +37,8 @@ func move(x, y):
 func eat():
 	if can_eat:
 		reward = 1
-		item.queue_free()
+		if remove_edible:
+			item.queue_free()
 	else:
 		reward = -1
 

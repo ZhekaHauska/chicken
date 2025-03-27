@@ -1,4 +1,5 @@
 {
+    "remove_edible": true,
     "field_size": 10,
     "weights": [1, 1],
     "sets":

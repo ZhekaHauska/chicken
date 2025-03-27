@@ -148,6 +148,7 @@ func setup_environment(config_dict):
 	var grid_size = field_scale / field_size
 	var set_weights = config_dict['weights']
 	var sets = config_dict['sets']
+	$Chicken.remove_edible = config_dict['remove_edible']
 	
 	for row in range(field_size):
 		x = start
