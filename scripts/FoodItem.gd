@@ -31,5 +31,7 @@ func _on_area_3d_body_entered(body):
 
 func _on_area_3d_body_exited(body):
 	if body is CharacterBody3D:
-		body.can_eat = false
-		body.item = null
+		# check that we left the same area that entered before
+		if body.item == self:
+			body.can_eat = false
+			body.item = null
