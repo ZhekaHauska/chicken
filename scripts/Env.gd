@@ -112,11 +112,7 @@ func _process(_delta):
 				_message_handler(message)
 
 
-func reset(position=null):
-	$Chicken.reward = 0
-	$Chicken.can_eat = false
-	$Chicken.emit_signal("got_reward", 0)
-	
+func reset(position=null):	
 	if position:
 		$Chicken.set_pos(position[0], position[1])
 	
