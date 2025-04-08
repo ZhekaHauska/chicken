@@ -231,13 +231,17 @@ func _message_handler(message):
 		var obs = $Chicken/RGBCameraSensor3D.get_camera_pixel_encoding()
 		var shape = $Chicken/RGBCameraSensor3D.get_camera_shape()
 		var reward = $Chicken.reward + reward_decay
+		var mesh_parameters = null
+		if $Chicken.item:
+			mesh_parameters = $Chicken.item.mesh_parameters
 		
 		var reply = {
 			"type": "obs",
 			"obs": obs,
 			"shape": shape,
 			"reward": reward,
-			"is_terminal": $Chicken.terminated
+			"is_terminal": $Chicken.terminated,
+			"info": mesh_parameters
 		}
 	
 		_send_dict_as_json_message(reply)

@@ -76,7 +76,7 @@ class Chicken:
 
         atexit.register(self.close)
 
-    def obs(self) -> [np.ndarray, float, bool]:
+    def obs(self) -> [np.ndarray, float, bool, dict]:
         """
         :return: image in RGB8 format, reward, terminal state
         """
@@ -92,8 +92,9 @@ class Chicken:
         )
         reward = response['reward']
         is_terminal = response['is_terminal']
+        info = response['info']
 
-        return obs, reward, is_terminal
+        return obs, reward, is_terminal, info
 
     def act(self, action: [float, float, bool]):
         """

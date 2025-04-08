@@ -20,17 +20,27 @@ if __name__ == '__main__':
     env = Chicken(
         **config
     )
-
-    while True:
-        env.reset()
-        for i in range(10):
-            env.step()
-            im, reward, is_terminal = env.obs()
-            print(reward, is_terminal)
-            plt.imshow(im)
-            plt.show()
+    action = (1.5, 1.5, 0)
+    env.act(action)
+    env.step()
+    mine_session_length = 500
+    for j in range(mine_session_length):
+        env.set_config(config['config_path'])
+        for i in range(20):
+            # first move to an item and get its image
             action = np.random.random(size=3) > 0.5
-            shift = action[:2]*1.0
-            action = float(shift[0]), float(shift[1]), bool(action[-1])
-            print(action)
+            shift = 7. * (action[:2] - 0.5) * np.random.binomial(n=1, p=0.5, size=action[:2].shape)
+            action = float(shift[0]), float(shift[1]), False
             env.act(action)
+            env.step()
+            im, _, _, _ = env.obs()
+
+            # then peck it
+            env.act((0, 0, True))
+            env.step()
+            _, reward, _, info = env.obs()
+
+            plt.imshow(im)
+            plt.title(f"{reward=}, {info=}")
+            plt.show()
+
