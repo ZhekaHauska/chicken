@@ -274,6 +274,9 @@ func _message_handler(message):
 	
 	if message['type'] == 'set_fov':
 		_set_fov(int(message['fov']))
+	
+	if message['type'] == 'close':
+		get_tree().quit()
 
 func sample_set_parameters(sets, set_weights):
 	var current_set = utils.sample_categorical(
