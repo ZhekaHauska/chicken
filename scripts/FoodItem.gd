@@ -14,7 +14,7 @@ func _ready():
 	
 	var color = mesh_parameters['color']
 	var material = StandardMaterial3D.new()
-	material.albedo_color = Color(color[0], color[1], color[2])
+	material.albedo_color = Color8(color[0], color[1], color[2])
 	material.roughness = mesh_parameters['roughness']
 	
 	mesh.set_surface_override_material(0, material)
